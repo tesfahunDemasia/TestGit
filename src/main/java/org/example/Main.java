@@ -1,8 +1,6 @@
 package org.example;
 
 /**
- *
- *
  * @author Tesfahun Demasia
  * @id 337592646
  * @date 15/01/23
