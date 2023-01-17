@@ -1,6 +1,8 @@
 package org.example;
 import java.sql.*;
 
+import static org.postgresql.core.ConnectionFactory.openConnection;
+
 public class connection {
     public  Connection getConnection(){
         String jdbcURL = "jdbc:postgresql://localhost:5432/MyDB";
@@ -49,9 +51,24 @@ public class connection {
             System.out.println("insert success!!");
             connection.close();
         } catch (SQLException e) {
-            System.out.println("error!");
+            System.out.printf("Error!!");
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
+    }
+    public void Update(String name,int id){
+        try {
+            String query=String.format("UPDATE \"con\""+
+                    "SET qwerty=' %s'"+"WHERE id= '%s'",name,Integer.toString(id));
+            Connection connection =getConnection();
+            Statement statement= connection.createStatement();
+            int resultSet=statement.executeUpdate(query);
+            connection.close();
+        } catch (SQLException e) {
+            System.out.printf("Error!!");
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

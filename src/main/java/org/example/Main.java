@@ -13,7 +13,8 @@ public class Main {
         connection con =new connection();
        // con.getConnection();
         con.select();
-        con.insert("tesfahun11");
+//        con.insert("tesfahun11");
+        con.Update("test",1);
 
     }
 }
