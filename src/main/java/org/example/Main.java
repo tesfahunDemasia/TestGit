@@ -14,7 +14,6 @@ public class Main {
        // con.getConnection();
         con.select();
 //        con.insert("tesfahun11");
-        con.Update("test",1);
-
+        con.Update("IMtes",1);
     }
 }

@@ -58,12 +58,13 @@ public class connection {
 
     }
     public void Update(String name,int id){
+        String query=("UPDATE con SET qwerty= ? WHERE id= ?");
         try {
-            String query=String.format("UPDATE \"con\""+
-                    "SET qwerty=' %s'"+"WHERE id= '%s'",name,Integer.toString(id));
             Connection connection =getConnection();
-            Statement statement= connection.createStatement();
-            int resultSet=statement.executeUpdate(query);
+            PreparedStatement statement= connection.prepareStatement(query);
+            statement.setString(1,name);
+            statement.setInt(2,id);
+            int resultSet=statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
             System.out.printf("Error!!");
