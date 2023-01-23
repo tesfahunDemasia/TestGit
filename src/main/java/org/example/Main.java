@@ -11,9 +11,10 @@ public class Main {
 //        System.out.println("Hello world! Hello tesfahun");
 //        System.out.println("good day");
         connection con =new connection();
-       // con.getConnection();
+//        con.getConnection();
         con.select();
 //        con.insert("tesfahun11");
-        con.Update("IMtes",1);
+//        con.Update("IMtes",1);
+        con.UsersList();
     }
 }

@@ -1,7 +1,7 @@
 package org.example;
 import java.sql.*;
-
-import static org.postgresql.core.ConnectionFactory.openConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class connection {
     public  Connection getConnection(){
@@ -72,4 +72,46 @@ public class connection {
             throw new RuntimeException(e);
         }
     }
+    public void UsersList(){
+        Connection con = getConnection();
+        List<entity> listName =new ArrayList<entity>();
+        listName= selectFromList(con);
+        boolean flag =true;
+        for (entity user:listName) {
+            if (user.id == 3) {
+                user.qwerty = "yosef";
+                Update(user.qwerty, user.id);
+                flag=false;
+            }
+            if(user.qwerty=="test"){
+                user.qwerty="shalom";
+                Update(user.qwerty, user.id);
+                flag=false;
+            }
+        }
+        if(flag){
+            String name="yosef";
+            insert(name);
+        }
+    }
+    public List<entity> selectFromList(Connection connection){ //מחזירה רשימת אנשים
+        List<entity> lst= new ArrayList<entity>();
+        try {
+            Statement statement=connection.createStatement();
+            String query= "SELECT* FROM con ";
+            ResultSet resultSet=statement.executeQuery(query);
+            while(resultSet.next()){
+                String name= resultSet.getString("qwerty");
+                int id= resultSet.getInt("id");
+                lst.add(new entity(id,name));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("error");
+            throw new RuntimeException(e);
+        }
+        return lst;
+    }
 }
+
+
