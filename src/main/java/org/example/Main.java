@@ -10,7 +10,7 @@ public class Main {
 //        System.out.println("Hello world!");
 //        System.out.println("Hello world! Hello tesfahun");
 //        System.out.println("good day");
-        connection con =new connection();
+        myConnection con =new myConnection();
 //        con.getConnection();
         con.select();
 //        con.insert("tesfahun11");

@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class connection {
+public class myConnection {
     public  Connection getConnection(){
         String jdbcURL = "jdbc:postgresql://localhost:5432/MyDB";
         String userName = "postgres";
