@@ -78,11 +78,11 @@ public class connection {
         listName= selectFromList(con);
         boolean flag =true;
         for (entity user:listName) {
-            if (user.id == 3) {
-                user.qwerty = "yosef";
-                Update(user.qwerty, user.id);
-                flag=false;
-            }
+//            if (user.id == 3) {
+//                user.qwerty = "yosef";
+//                Update(user.qwerty, user.id);
+//                flag=false;
+//            }
             if(user.qwerty=="test"){
                 user.qwerty="shalom";
                 Update(user.qwerty, user.id);
