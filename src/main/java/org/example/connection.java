@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class myConnection {
+public class connection {
     public  Connection getConnection(){
         String jdbcURL = "jdbc:postgresql://localhost:5432/MyDB";
         String userName = "postgres";
@@ -77,21 +77,22 @@ public class myConnection {
         List<entity> listName =new ArrayList<entity>();
         listName= selectFromList(con);
         boolean flag =true;
-        for (entity user:listName) {
-//            if (user.id == 3) {
-//                user.qwerty = "yosef";
-//                Update(user.qwerty, user.id);
+        for(entity user:listName) {
+//            if (user.getId() == 10){
+//                user.setQwerty("shalom");
+//                Update(user.getQwerty(), user.getId());
 //                flag=false;
 //            }
-            if(user.qwerty=="test"){
-                user.qwerty="shalom";
-                Update(user.qwerty, user.id);
+            if(user.getQwerty().contains("IMtes")){
+                user.setQwerty("sdfj");
+                Update(user.getQwerty(), user.getId());
                 flag=false;
             }
         }
         if(flag){
-            String name="yosef";
-            insert(name);
+            entity user1 =new entity();
+            user1.setQwerty("new guy");
+            insert(user1.getQwerty());
         }
     }
     public List<entity> selectFromList(Connection connection){ //מחזירה רשימת אנשים
@@ -105,7 +106,8 @@ public class myConnection {
                 int id= resultSet.getInt("id");
                 lst.add(new entity(id,name));
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
             System.out.println("error");
             throw new RuntimeException(e);
