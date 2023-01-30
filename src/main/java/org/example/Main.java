@@ -12,11 +12,12 @@ public class Main {
 //        System.out.println("good day");
         connection con =new connection();
 //        con.getConnection();
-        con.select();
+//        con.select();
 //        con.insert("tesfahun11");
 //        con.Update("IMtes",1);
 //        con.Update("amit",8);
         con.UsersList();
+        con.select();
 
     }
 }

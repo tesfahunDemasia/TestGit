@@ -78,17 +78,18 @@ public class connection {
         listName= selectFromList(con);
         boolean flag =true;
         for(entity user:listName) {
-//            if (user.getId() == 10){
-//                user.setQwerty("shalom");
-//                Update(user.getQwerty(), user.getId());
-//                flag=false;
-//            }
-            if(user.getQwerty().contains("IMtes")){
-                user.setQwerty("sdfj");
+            if (user.getId() == 10){
+                user.setQwerty("shalom");
+                Update(user.getQwerty(), user.getId());
+                flag=false;
+            }
+            if(user.getQwerty().equals("TES")){
+                user.setQwerty("new tes");
                 Update(user.getQwerty(), user.getId());
                 flag=false;
             }
         }
+        // אם לא ביצע אחד מהם,צור משתמש חדש והכנס אותו
         if(flag){
             entity user1 =new entity();
             user1.setQwerty("new guy");
